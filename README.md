@@ -1,2 +1,16 @@
-# FlutterProject
-Projet Flutter de création d'une application utilisant l'API d'Angers sur les installations sportives. Ce projet vise à aider les utilisateurs dans leur recherches d'endroit pour faire du sport en fonction du sport souhaité (tennis, foot, dance etc). L'utilisateur aura la possibilité d'ajouter des lieux dans ses favoris qui seront sauvegardé.
+# flutter_application
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
