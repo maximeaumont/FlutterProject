@@ -7,27 +7,37 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Ecran d'accueil"),
+        title: const Text('SportSpot Angers'),
+        backgroundColor: Colors.deepPurple,
+        centerTitle: true,
       ),
       body: Container(
-        color: Colors.blue,
+        color: Colors.white,
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context,
-                      '/search_sport_venue'); // Rediriger vers l'écran 1
-                },
-                child: const Text('Chercher un lieu'),
+            children: <Widget>[
+              Card(
+                elevation: 4,
+                margin: const EdgeInsets.all(12.0),
+                child: ListTile(
+                  leading: const Icon(Icons.search, color: Colors.deepPurple),
+                  title: const Text('Trouver un lieu'),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/search_sport_venue'); // Rediriger vers l'écran "Trouver un lieu"
+                  },
+                ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(
-                      context, '/my_favorites'); // Rediriger vers l'écran 2
-                },
-                child: const Text('Mes favoris'),
+              Card(
+                elevation: 4,
+                margin: const EdgeInsets.all(12.0),
+                child: ListTile(
+                  leading: const Icon(Icons.favorite, color: Colors.red),
+                  title: const Text('Mes favoris'),
+                  onTap: () {
+                    Navigator.pushNamed(context, '/my_favorites'); // Rediriger vers l'écran "Mes favoris"
+                  },
+                ),
               ),
             ],
           ),
