@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/models/sport_venue.dart';
 import 'package:flutter_application/repository/favorites_repository.dart';
-
-
-
+import 'package:latlong2/latlong.dart';
 
 class SearchSportVenue extends StatefulWidget {
   const SearchSportVenue({super.key});
@@ -15,10 +13,10 @@ class SearchSportVenue extends StatefulWidget {
 class _SearchSportVenueState extends State<SearchSportVenue> {
   final FavoritesRepository _favoritesRepository = FavoritesRepository();
   final List<SportVenue> _sportVenues = [
-    SportVenue(0, 'Gymnase Albert José', 'Basket', 280, 'gymnase_albert_jose@mail.fr', 'Nord Est Angers'),
-    SportVenue(1, 'Terrain athlétisme Lac de Maine', 'Athlétisme', 420, 'athletisme_ldm@mail.fr', 'A côté du Lac de Maine'),
-    SportVenue(2, 'Terrain de boules Gare du Nord', 'Pétanque', 80, 'petanque_gn@mail.fr', 'Derrière la gare'),
-  ]; 
+    SportVenue(1, 'Gymnase Albert José', 'Basket', 280, 'gymnase_albert_jose@mail.fr', 'Nord Est Angers', LatLng(47.478419, -0.563166)),
+    SportVenue(2, 'Terrain athlétisme Lac de Maine', 'Athlétisme', 420, 'athletisme_ldm@mail.fr', 'A côté du Lac de Maine', LatLng(47.459839, -0.588140)),
+    SportVenue(3, 'Terrain de boules Gare du Nord', 'Pétanque', 80, 'petanque_gn@mail.fr', 'Derrière la gare', LatLng(47.464478, -0.554486)),
+  ];
 
   @override
   void initState() {
@@ -34,7 +32,6 @@ class _SearchSportVenueState extends State<SearchSportVenue> {
       }
     });
   }
-
 
   void toggleFavorite(SportVenue venue) async {
     setState(() {
@@ -60,10 +57,10 @@ class _SearchSportVenueState extends State<SearchSportVenue> {
               title: Text(sportVenue.name),
               subtitle: Text('Localisation : ${sportVenue.geoPosition}, Nombre de places : ${sportVenue.numberOfPlaces}'),
               trailing: IconButton(
-              icon: Icon(sportVenue.isFavorite ? Icons.favorite : Icons.favorite_border),
-              color: Colors.red,
-              onPressed: () => toggleFavorite(sportVenue),
-            ),
+                icon: Icon(sportVenue.isFavorite ? Icons.favorite : Icons.favorite_border),
+                color: Colors.red,
+                onPressed: () => toggleFavorite(sportVenue),
+              ),
             );
           },
         ),
