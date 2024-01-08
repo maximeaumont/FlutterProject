@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/models/sport_venue.dart';
 import 'package:flutter_application/repositories/sport_venue_repository.dart';
+import 'package:flutter_application/repository/favorites_repository.dart';
+import 'package:latlong2/latlong.dart';
+
 
 class SearchSportVenue extends StatefulWidget {
   const SearchSportVenue({super.key});
@@ -10,6 +13,7 @@ class SearchSportVenue extends StatefulWidget {
 }
 
 class _SearchSportVenueState extends State<SearchSportVenue> {
+  final FavoritesRepository _favoritesRepository = FavoritesRepository();
   List<SportVenue> _sportvenues = [];
   List<String> listOfChoices = [
     'Choisissez un sport',
@@ -37,6 +41,28 @@ class _SearchSportVenueState extends State<SearchSportVenue> {
         });
       });
     }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadFavorites();
+  }
+
+  Future<void> _loadFavorites() async {
+    final favorites = await _favoritesRepository.loadFavorites();
+    setState(() {
+      for (var venue in _sportVenues) {
+        venue.isFavorite = favorites.any((fav) => fav.id == venue.id);
+      }
+    });
+  }
+
+  void toggleFavorite(SportVenue venue) async {
+    setState(() {
+      venue.isFavorite = !venue.isFavorite;
+    });
+    await _favoritesRepository.saveFavorites(_sportVenues.where((v) => v.isFavorite).toList());
   }
 
   @override
@@ -88,9 +114,14 @@ class _SearchSportVenueState extends State<SearchSportVenue> {
                               ? 'Nombre de places : ${sportVenue.numberOfPlaces}'
                               : ''),
                         ],
-                      ));
-                },
-                separatorBuilder: (context, index) => const Divider(),
+                      ),
+                      trailing: IconButton(
+                        icon: Icon(sportVenue.isFavorite ? Icons.favorite : Icons.favorite_border),
+                        color: Colors.red,
+                        onPressed: () => toggleFavorite(sportVenue),
+                          );
+                        },
+                        separatorBuilder: (context, index) => const Divider(),
               ),
             ),
           ],
