@@ -15,7 +15,8 @@ class SportVenue {
     final activity = json['activite'];
     final numberOfPlaces = json['nb_place'];
     final mail = json['mail'];
-    const geoPosition = 'pas encore la position';
+    // final geoPosition = json['geo_point_2d'];
+    final geoPosition = 'Pas de localisation';
     return SportVenue(id, name, activity, numberOfPlaces, mail, geoPosition);
   }
 }

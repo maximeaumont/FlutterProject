@@ -10,7 +10,8 @@ class MyFavorites extends StatelessWidget {
         title: const Text("Mes favoris"),
       ),
       body: Container(
-        color: Color.fromARGB(255, 255, 191, 72), // Couleur de fond de l'écran
+        color: const Color.fromARGB(
+            255, 255, 191, 72), // Couleur de fond de l'écran
         child: const Center(
           child: Text(
             'Bonjour Flutter !',
