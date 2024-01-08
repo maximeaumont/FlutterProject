@@ -1,11 +1,21 @@
 class SportVenue {
-  final int id;
-  final String name;
-  final String activity;
-  final int numberOfPlaces;
-  final String mail;
-  final String geoPosition;
+  String? id;
+  String? name;
+  String? activity;
+  String? numberOfPlaces;
+  String? mail;
+  String? geoPosition;
 
-  const SportVenue(this.id, this.name, this.activity, this.numberOfPlaces,
-      this.mail, this.geoPosition);
+  SportVenue(this.id, this.name, this.activity, this.numberOfPlaces, this.mail,
+      this.geoPosition);
+
+  factory SportVenue.fromGeoJson(Map<String, dynamic> json) {
+    final id = json['res_fid'];
+    final name = json['nom_instal'];
+    final activity = json['activite'];
+    final numberOfPlaces = json['nb_place'];
+    final mail = json['mail'];
+    const geoPosition = 'pas encore la position';
+    return SportVenue(id, name, activity, numberOfPlaces, mail, geoPosition);
+  }
 }
