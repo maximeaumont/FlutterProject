@@ -22,3 +22,5 @@ L'application utilise l'API suivante : https://data.angers.fr/explore/dataset/eq
 L'application respecte les consignes suivantes :
 -utilise un système de persistance des données pour le stockage des informations.
 -intègre un "state management" global pour gérer les lieux sportifs favoris.
+
+La dernière version du projet est sur la branche main.
