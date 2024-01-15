@@ -36,16 +36,14 @@ class SportVenueMapView extends StatelessWidget {
   }
 
   Widget _buildCustomMarker(SportVenue venue) {
-    return Container(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          const Expanded(
-            child: Icon(Icons.location_on, color: Colors.red, size: 40),
-          ),
-          Text(venue.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
-        ],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        const Expanded(
+          child: Icon(Icons.location_on, color: Colors.red, size: 40),
+        ),
+        Text(venue.name, style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+      ],
     );
   }
 }

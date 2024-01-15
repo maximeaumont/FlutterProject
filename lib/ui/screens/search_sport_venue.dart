@@ -97,7 +97,7 @@ class _SearchSportVenueState extends State<SearchSportVenue>
             scale: _animation!,
             alignment: Alignment.center,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: DropdownButton<String>(
                 value: selectedSport,
                 icon: const Icon(Icons.arrow_downward),

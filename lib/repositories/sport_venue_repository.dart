@@ -11,7 +11,6 @@ class SportVenueRepository {
     ));
     if (response.statusCode == 200) {
       final List<SportVenueAPI> sportvenues = [];
-      print(response.body);
       final Map<String, dynamic> json = jsonDecode(response.body);
       if (json.containsKey("results")) {
         final List<dynamic> results = json['results'];
