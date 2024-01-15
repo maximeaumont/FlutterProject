@@ -69,32 +69,33 @@ class _MyFavoritesState extends State<MyFavorites> {
     );
   }
 
-  Widget _buildListView(List<SportVenue> favorites) {
-    return ListView.builder(
-      itemCount: favorites.length,
-      itemBuilder: (context, index) {
-        final sportVenue = favorites[index];
-        return Card(
-          elevation: 4,
-          margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          child: ListTile(
-            leading: CircleAvatar(
-              backgroundColor: Colors.deepPurple,
-              child: Text(sportVenue.name[0]), 
-            ),
-            title: Text(sportVenue.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-            subtitle: Text(sportVenue.geoPosition),
-            trailing: IconButton(
-              icon: const Icon(Icons.delete, color: Colors.red),
-              onPressed: () {
-                context.read<FavoriteBloc>().add(RemoveFavorite(sportVenue));
-              },
-            ),
+Widget _buildListView(List<SportVenue> favorites) {
+  return ListView.builder(
+    itemCount: favorites.length,
+    itemBuilder: (context, index) {
+      final sportVenue = favorites[index];
+      return Card(
+        elevation: 4,
+        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundColor: Colors.deepPurple,
+            child: Text(sportVenue.name[0]), 
           ),
-        );
-      },
-    );
-  }
+          title: Text(sportVenue.name, style: const TextStyle(fontWeight: FontWeight.bold)),
+          subtitle: Text("Sport(s) pratiqué(s) : ${sportVenue.activity}"),
+          trailing: IconButton(
+            icon: const Icon(Icons.delete, color: Colors.red),
+            onPressed: () {
+              context.read<FavoriteBloc>().add(RemoveFavorite(sportVenue));
+            },
+          ),
+        ),
+      );
+    },
+  );
+}
+
 
   void onTabTapped(int index) {
     setState(() {

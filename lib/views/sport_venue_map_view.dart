@@ -23,11 +23,11 @@ class SportVenueMapView extends StatelessWidget {
     return FlutterMap(
       options: MapOptions(
         center: LatLng(47.459839, -0.588140),
-        zoom: 10.0,
+        zoom: 12.0,
       ),
       children: [
         TileLayer(
-          urlTemplate: 'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
+          urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
           subdomains: const ['a', 'b', 'c'],
         ),
         MarkerLayer(markers: markers),

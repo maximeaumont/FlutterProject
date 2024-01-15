@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/blocs/favorite_bloc.dart';
-import 'package:flutter_application/repository/favorites_repository.dart';
+import 'package:flutter_application/repositories/favorites_repository.dart';
 import 'package:flutter_application/router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,7 +16,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

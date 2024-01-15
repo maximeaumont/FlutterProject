@@ -1,7 +1,7 @@
 import 'package:flutter_application/blocs/favorite_event.dart';
 import 'package:flutter_application/blocs/favorite_state.dart';
 import 'package:flutter_application/models/sport_venue.dart';
-import 'package:flutter_application/repository/favorites_repository.dart';
+import 'package:flutter_application/repositories/favorites_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {

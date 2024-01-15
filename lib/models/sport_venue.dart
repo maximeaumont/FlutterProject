@@ -10,6 +10,7 @@ class SportVenue {
   final LatLng coordinates;
   bool isFavorite;
 
+
   SportVenue(
     this.id,
     this.name,
@@ -19,6 +20,7 @@ class SportVenue {
     this.geoPosition,
     this.coordinates,
     {this.isFavorite = false}
+    
   );
 
   Map<String, dynamic> toJson() {
